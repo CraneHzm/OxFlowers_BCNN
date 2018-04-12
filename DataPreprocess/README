@@ -1,16 +1,16 @@
-# Copyright (c) 2018/4/5 Hu Zhiming JimmyHu@pku.edu.cn All Rights Reserved.
+# Copyright (c) 2018/4/12 Hu Zhiming JimmyHu@pku.edu.cn All Rights Reserved.
 # The steps to preprocess the original images.
+
 
 # directories & files:
 'Images' directory: stores the original images that are downloaded from http://www.robots.ox.ac.uk/~vgg/data/flowers/17/.
-'DataPreprocess.m': Split the original images into train & test images according to the given train.mat & test.mat.
-'Images2', 'Test', 'Train', 'TrainCrop', 'TrainFlip', 'TrainNoise', 'Validation' directories: the directories that are used by DataPreprocess.m. 
-'test.mat', 'train.mat': the mats which are used to split the train & test images. The 2 mats are downloaded from http://www.robots.ox.ac.uk/~vgg/data/flowers/17/.
-'CreateTFRecords.py': Use the images in Train & Test directories to create train.tfrecords & test.tfrecords files.
+'DataPreprocess.m': Split the original images into train, validation & test images and augment the train data.
+'CreateTFRecords.py': Use the splitted images and augmented train data to create train_aug.tfrecords, validation.tfrecords & test.tfrecords files.
+
 
 # Usage:
 Step1: Download the original images from http://www.robots.ox.ac.uk/~vgg/data/flowers/17/ and store them in 'Images/' directory.
-Step2: Run 'DataPreprocess.m' file(create the directories used in 'DataPreprocess.m' if you do not have them).
-Step3: Run 'CreateTFRecords.py' file.
-Step4: You will get train.tfrecords & test.tfrecords files in '../Dataset/' directory after Step3. 
+Step2: Run 'DataPreprocess.m' file to split the images and augment the train images.
+Step3: Run 'CreateTFRecords.py' file to create the TFRecord files.
+Step4: You will get train_aug.tfrecords, validation.tfrecords & test.tfrecords files in '../Dataset/' directory after Step3. 
 

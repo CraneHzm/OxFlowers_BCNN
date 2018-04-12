@@ -18,7 +18,7 @@ train_dir = os.listdir(cwd+"/Train/")
 validation_dir = os.listdir(cwd+"/Validation/")
 test_dir = os.listdir(cwd+"/Test/")
 # a class to write records to a TFRecords file.
-train_writer = tf.python_io.TFRecordWriter("../Dataset/train.tfrecords")  
+# train_writer = tf.python_io.TFRecordWriter("../Dataset/train.tfrecords")  
 validation_writer = tf.python_io.TFRecordWriter("../Dataset/validation.tfrecords") 
 test_writer = tf.python_io.TFRecordWriter("../Dataset/test.tfrecords") 
 
@@ -29,6 +29,7 @@ ImageHeight= 224
 # the number of images in a category.
 Number = 80
 
+"""
 # create the train tfrecords.
 for name in train_dir:  
 	# the path of an image.
@@ -58,6 +59,7 @@ for name in train_dir:
 
 # close the TFRecords writer.	
 train_writer.close()  
+"""
 
 # create the validation tfrecords.
 for name in validation_dir:  
@@ -232,16 +234,3 @@ for name in trainNoise_dir:
 	
 # close the TFRecords writer.	
 train_aug_writer.close()  
-
-
-"""
-# test the dataset
-for serialized_example in tf.python_io.tf_record_iterator("train.tfrecords"):  
-    example = tf.train.Example()  
-	# parse the serialized example from string.
-    example.ParseFromString(serialized_example)  
-
-    image = example.features.feature['image'].bytes_list.value  
-    label = example.features.feature['label'].int64_list.value   
-    print('label: {}'.format(label))
-"""

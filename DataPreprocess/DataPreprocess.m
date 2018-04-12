@@ -1,12 +1,15 @@
 % Copyright (c) Hu Zhiming 2018/4/4 JimmyHu@pku.edu.cn All Rights Reserved.
 % preprocess the images: split the images into train, validation & test
-% sets.
+% sets and augment the train images.
 
 % load the datasplits mat.
 load 'datasplits.mat'
 
 % the path of the original images.
 imgPath1 = 'Images/';
+
+% make the directory that we need.
+mkdir('Images2');
 % the path of the renamed images.
 imgPath2 = 'Images2/';
 
@@ -21,6 +24,7 @@ for i = 1: length(imgDir1)
 end
 
 % split the train set.
+mkdir('Train');
 trainPath = 'Train/';
 for i =1 : length(trn1)
     % the name of the training images.
@@ -31,6 +35,7 @@ for i =1 : length(trn1)
 end
 
 % split the validation set.
+mkdir('Validation');
 testPath = 'Validation/';
 for i =1 : length(val1)
     % the name of the training images.
@@ -41,6 +46,7 @@ for i =1 : length(val1)
 end
 
 % split the test set.
+mkdir('Test');
 testPath = 'Test/';
 for i =1 : length(tst1)
     % the name of the training images.
@@ -56,6 +62,7 @@ trainPath = 'Train/';
 trainDir = dir([trainPath, '*.jpg']);
 
 % Randomly flip the original images.
+mkdir('TrainFlip');
 flipPath = 'TrainFlip/';
 for i = 1: length(trainDir)
     % the random flag.
@@ -71,6 +78,7 @@ for i = 1: length(trainDir)
 end
 
 % Randomly crop the original images.
+mkdir('TrainCrop');
 cropPath = 'TrainCrop/';
 for i = 1: length(trainDir)
     % the random flag.
@@ -90,6 +98,7 @@ for i = 1: length(trainDir)
 end
 
 % Randomly crop the original images.
+mkdir('TrainNoise');
 noisePath = 'TrainNoise/';
 for i = 1: length(trainDir)
     % the random flag.
