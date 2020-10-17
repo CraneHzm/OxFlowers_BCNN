@@ -1,7 +1,7 @@
-# Copyright (c) 2018/4/5 Hu Zhiming JimmyHu@pku.edu.cn All Rights Reserved.
-# The tensorflow CNN & Bilinear CNN codes for Oxford Flowers 17 Dataset.
+Copyright (c) 2018/4/5 Zhiming Hu jimmyhu (at) pku.edu.cn All Rights Reserved.
+The tensorflow CNN & Bilinear CNN codes for Oxford Flowers 17 Dataset.
 
-# Directories & Files:
+Directories & Files:
 
 'DataPreprocess' directory: stores the codes to preprocess the original images.
 'Dataset' directory: stores the TFRecord files created in the DataPreprocess directory.
@@ -10,12 +10,12 @@
 'OxFlowers_CNN_75.py': the main function of CNN model.
 'OxFlowers_BCNN_85.py': the main function of Bilinear CNN model.
 
-# Environments:
+Environments:
 Python 3.6+
 
 tensorflow 1.4.1+
 
-# Usage:
+Usage:
 
 Step 1: Check the 'Dataset/' directory to confirm whether the TFRecord files exist. 
 If not, run the code in 'DataPreprocess/' to create the TFRecord files.
